@@ -7,7 +7,10 @@ This plugin was made for team coding competetion UnIT 2025 in category Help the 
 ## Technology 
 <div>
    <img src="https://github.com/devicons/devicon/blob/master/icons/jetbrains/jetbrains-original.svg" title="JetBrains" alt="logo" width="50" height="50"/>&nbsp;
-   <img src="https://github.com/devicons/devicon/blob/master/icons/kotlin/kotlin-original.svg" title="Kotlin" alt="KotlinLogo" width="50" height="50"/>&nbsp;
+   <img src="https://github.com/devicons/devicon/blob/master/icons/kotlin/kotlin-original.svg" title="Kotlin" alt="KotlinLogo" width="50" height="50"/>&nbsp; 
+   <img src="https://github.com/devicons/devicon/blob/master/icons/gradle/gradle-original.svg" title="Gradle" alt="GradleLogo" width="50" height="50"/>&nbsp;
+
+ 
 </div>
 
 
