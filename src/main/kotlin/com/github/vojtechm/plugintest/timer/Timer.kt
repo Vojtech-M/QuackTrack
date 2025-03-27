@@ -4,33 +4,61 @@ import com.intellij.notification.ActionCenter.showNotification
 import javax.swing.JLabel
 import java.util.Timer
 import java.util.TimerTask
+import javax.swing.BoxLayout
 
-class CountdownTimer( private val label: JLabel) {
+
+class CountdownTimer( private val label: JLabel, private val Notification: Notification, private val hoursinput: Int, private val minutesinput: Int, private val secondsinput: Int, private val run: Boolean) {
     private var timer = Timer()
     private var hours: Int = 0
     private var minutes: Int = 0
     private var seconds: Int = 0
 
 
-    fun start() {
+
+    fun  start(): Boolean{
         reset()
+
+
+
         timer.scheduleAtFixedRate(object : TimerTask() {
-            override fun run() {
+            override fun run(){
                 if (hours == 0 && minutes == 0 && seconds == 0) {
                     label.text = "Čas vypršel" // Display time's up message
-                    Notification().showNotification()
-                    timer.cancel() // Stop the timer
-                    return
+                    Notification.showNotification()
+                    hours = hoursinput
+                    minutes = minutesinput
+                    seconds = secondsinput
+
+                    if (run == false){
+                        timer.cancel()
+                        stopNotification = false
+                        return
+                    }else {
+                        start()
+                    }
+
                 }
 
                 decrementTime()
-                label.text = "Timer: ${formatTime()}" // Update label with countdown time
+                label.text = "${formatTime()}" // Update label with countdown time
             }
         }, 0, 1000) // Start immediately, update every second
+    return true
     }
+
 
     fun sethours(hours: Int) {
         this.hours = hours
+    }
+    fun setMinutes(minutes: Int) {
+        this.minutes = minutes
+    }
+    fun setSeconds(seconds: Int) {
+        this.seconds = seconds
+    }
+
+    fun getSeconds(): Int {
+        return seconds
     }
 
 
@@ -53,9 +81,11 @@ class CountdownTimer( private val label: JLabel) {
 
     fun reset() {
         timer.cancel()
-        seconds = 0
-        minutes = 0
+
         timer = Timer()
     }
+
+
+
 
 }
