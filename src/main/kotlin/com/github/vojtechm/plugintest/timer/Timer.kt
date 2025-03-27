@@ -6,6 +6,7 @@ import javax.swing.JLabel
 import java.util.Timer
 import java.util.TimerTask
 import javax.swing.BoxLayout
+import javax.swing.Icon
 import javax.swing.ImageIcon
 
 
@@ -40,6 +41,8 @@ class CountdownTimer(private val label: JLabel, private val Notification: Notifi
                     label.text = "Čas vypršel" // Display time's up message
                     Notification.showNotification()
 
+
+
                     hours = hoursinput
                     minutes = minutesinput
                     seconds = secondsinput
@@ -51,9 +54,10 @@ class CountdownTimer(private val label: JLabel, private val Notification: Notifi
 
                     } else {
                         reset()
+                        imageLabel.icon = updateImage()
+
+
                         start()
-
-
 
 
                     }
@@ -117,15 +121,18 @@ class CountdownTimer(private val label: JLabel, private val Notification: Notifi
         timer.cancel()
         activeTimers.remove(this) // Remove timer from active list
     }
-    private fun updateImage() {
+    private fun updateImage(): Icon? {
         // Change the current image index
         if (currentImageIndex < imagesArray.size - 1) {
             currentImageIndex++
-        } else {
-            currentImageIndex = 0 // Reset to the first image when reaching the last
         }
         // Update the image label's icon
         imageLabel.icon = imagesArray[currentImageIndex]
+        return imageLabel.icon
+    }
+
+    fun setCurrentImageIndex(index: Int){
+        currentImageIndex = index
     }
 
 

@@ -43,6 +43,7 @@ class MyToolWindowFactory : ToolWindowFactory {
         private val service: MyProjectService = toolWindow.project.getService(MyProjectService::class.java)
         private val label = JBLabel("00:00:00") // Start from 2 hours
         private val waterlabel = JBLabel(null)
+        private var imageLabel = JBLabel()
         val image1 = "/images/duck.gif"
         val image2 = "/images/duck2.gif"
         val image3 = "/images/duck3.gif"
@@ -53,11 +54,11 @@ class MyToolWindowFactory : ToolWindowFactory {
 
         val imagesArray = arrayOf(imageIcon1, imageIcon2, imageIcon3)
 
-        val countdownTimer = CountdownTimer(label, Notification("cas", "vyprsel"), 0,0,0, false, waterlabel, imagesArray)
-        val countdownTimerWater = CountdownTimer(waterlabel, Notification("voda", "napij se "), 0,0,5, true, waterlabel, imagesArray)
+        val countdownTimer = CountdownTimer(label, Notification("cas", "vyprsel"), 0,0,0, false, imageLabel, imagesArray)
+        val countdownTimerWater = CountdownTimer(waterlabel, Notification("voda", "napij se "), 0,0,5, true, imageLabel, imagesArray)
 
-        private var imageLabel = JBLabel()
-        private var currentImageIndex = 0
+
+
 
 
         val content: JBPanel<*>
@@ -96,13 +97,14 @@ class MyToolWindowFactory : ToolWindowFactory {
                     row("") {
                         cell(imageLabel)
 
-
-
                         button("reset"){
-                            if (currentImageIndex <= imagesArray.size - 1) {
-                                currentImageIndex = currentImageIndex + 1
-                                imageLabel.icon = imagesArray[currentImageIndex]
-                            }
+                            imageLabel.icon = imageIcon1
+                            countdownTimerWater.setCurrentImageIndex(0)
+
+                           // if (currentImageIndex <= imagesArray.size - 1) {
+                            //   currentImageIndex = currentImageIndex + 1
+                            //   imageLabel.icon = imagesArray[currentImageIndex]
+                           // }
                         }
                     }
                     row("running ruck"){
