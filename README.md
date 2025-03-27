@@ -1,51 +1,66 @@
-# plugin_test
+# 🦆 QuackTrack - Help the Developer
 
-![Build](https://github.com/Vojtech-M/plugin_test/workflows/Build/badge.svg)
-[![Version](https://img.shields.io/jetbrains/plugin/v/MARKETPLACE_ID.svg)](https://plugins.jetbrains.com/plugin/MARKETPLACE_ID)
-[![Downloads](https://img.shields.io/jetbrains/plugin/d/MARKETPLACE_ID.svg)](https://plugins.jetbrains.com/plugin/MARKETPLACE_ID)
+QuackTrack is an IntelliJ IDEA plugin designed to help developers manage their time effectively while keeping them hydrated and promoting healthy habits—all in a fun way with animated ducks! 🦆⏳💧
+This plugin was made for team coding competetion UnIT 2025 in category Help the Developer by JetBrains. 
 
-## Template ToDo list
-- [x] Create a new [IntelliJ Platform Plugin Template][template] project.
-- [ ] Get familiar with the [template documentation][template].
-- [ ] Adjust the [pluginGroup](./gradle.properties) and [pluginName](./gradle.properties), as well as the [id](./src/main/resources/META-INF/plugin.xml) and [sources package](./src/main/kotlin).
-- [ ] Adjust the plugin description in `README` (see [Tips][docs:plugin-description])
-- [ ] Review the [Legal Agreements](https://plugins.jetbrains.com/docs/marketplace/legal-agreements.html?from=IJPluginTemplate).
-- [ ] [Publish a plugin manually](https://plugins.jetbrains.com/docs/intellij/publishing-plugin.html?from=IJPluginTemplate) for the first time.
-- [ ] Set the `MARKETPLACE_ID` in the above README badges. You can obtain it once the plugin is published to JetBrains Marketplace.
-- [ ] Set the [Plugin Signing](https://plugins.jetbrains.com/docs/intellij/plugin-signing.html?from=IJPluginTemplate) related [secrets](https://github.com/JetBrains/intellij-platform-plugin-template#environment-variables).
-- [ ] Set the [Deployment Token](https://plugins.jetbrains.com/docs/marketplace/plugin-upload.html?from=IJPluginTemplate).
-- [ ] Click the <kbd>Watch</kbd> button on the top of the [IntelliJ Platform Plugin Template][template] to be notified about releases containing new features and fixes.
 
-<!-- Plugin description -->
-This Fancy IntelliJ Platform Plugin is going to be your implementation of the brilliant ideas that you have.
+## Technology 
+<div>
+   <img src="https://github.com/devicons/devicon/blob/master/icons/jetbrains/jetbrains-original.svg" title="JetBrains" alt="logo" width="50" height="50"/>&nbsp;
+   <img src="https://github.com/devicons/devicon/blob/master/icons/kotlin/kotlin-original.svg" title="Kotlin" alt="KotlinLogo" width="50" height="50"/>&nbsp;
+</div>
 
-This specific section is a source for the [plugin.xml](/src/main/resources/META-INF/plugin.xml) file which will be extracted by the [Gradle](/build.gradle.kts) during the build process.
 
-To keep everything working, do not remove `<!-- ... -->` sections. 
-<!-- Plugin description end -->
+## 🚀 Features
+- **Customizable Countdown Timer** ⏳  
+  - Tracks time spent on a project
+  - Allows setting custom countdown durations
+  - Displays an animated duck while the timer runs
+- **Hydration Reminder** 💧  
+  - Alerts developers to drink water every hour
+  - Resettable with a button
+  - If ignored, an angry duck appears! 🦆😠
+- **Walk Reminder** 🚶  
+  - Encourages short breaks with fun animations
 
-## Installation
+## 📸 Screenshots
+*(Add screenshots here if available)*
 
-- Using the IDE built-in plugin system:
-  
-  <kbd>Settings/Preferences</kbd> > <kbd>Plugins</kbd> > <kbd>Marketplace</kbd> > <kbd>Search for "plugin_test"</kbd> >
-  <kbd>Install</kbd>
-  
-- Using JetBrains Marketplace:
+## 🛠 Installation
+1. Open IntelliJ IDEA.
+2. Navigate to `Settings` → `Plugins`.
+3. Search for "QuackTrack".
+4. Click `Install` and restart your IDE.
 
-  Go to [JetBrains Marketplace](https://plugins.jetbrains.com/plugin/MARKETPLACE_ID) and install it by clicking the <kbd>Install to ...</kbd> button in case your IDE is running.
+## 🏗 How It Works
+- The **timer** runs in the IntelliJ IDEA tool window and can be started with a button click.
+- The **hydration reminder** runs in parallel and notifies the user every hour.
+- If the hydration reminder is ignored, a **grumpy duck** appears to remind you! 🦆
+- The **walk reminder** encourages breaks by displaying animations.
 
-  You can also download the [latest release](https://plugins.jetbrains.com/plugin/MARKETPLACE_ID/versions) from JetBrains Marketplace and install it manually using
-  <kbd>Settings/Preferences</kbd> > <kbd>Plugins</kbd> > <kbd>⚙️</kbd> > <kbd>Install plugin from disk...</kbd>
+## 📝 Usage
+1. Open the QuackTrack tool window in IntelliJ IDEA.
+2. Set your countdown timer using the dropdown menu.
+3. Click **Start Timer** to begin tracking.
+4. Stay hydrated! The duck will remind you. 🦆💦
 
-- Manually:
+## 💻 Technologies Used
+- **Kotlin** for plugin development
+- **IntelliJ Platform SDK**
+- **Swing UI Components** (`JBLabel`, `JPanel`, etc.)
+- **JetBrains API** for notifications and IDE integrations
 
-  Download the [latest release](https://github.com/Vojtech-M/plugin_test/releases/latest) and install it manually using
-  <kbd>Settings/Preferences</kbd> > <kbd>Plugins</kbd> > <kbd>⚙️</kbd> > <kbd>Install plugin from disk...</kbd>
+## 👥 Contributors
+- [Vojtěch Michal](https://github.com/Vojtech-M)
+- [Patrik Pašek](https://github.com/pasekpatrik)
+- **Barbora Gregorová**  
+- **Magdalena Lebedová**  
 
+## 📜 License
+MIT License. See `LICENSE` for details.
+
+## 🌟 Support & Feedback
+If you like QuackTrack, give it a ⭐ on GitHub! For issues, create a new [GitHub issue](https://github.com/your-repo/issues).
 
 ---
-Plugin based on the [IntelliJ Platform Plugin Template][template].
-
-[template]: https://github.com/JetBrains/intellij-platform-plugin-template
-[docs:plugin-description]: https://plugins.jetbrains.com/docs/intellij/plugin-user-experience.html#plugin-description-and-presentation
+🐤 Keep coding, stay hydrated, and take breaks with QuackTrack! 🦆🚀
