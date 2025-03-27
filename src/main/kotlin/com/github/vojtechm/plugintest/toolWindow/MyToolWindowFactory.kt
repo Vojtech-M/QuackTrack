@@ -50,9 +50,9 @@ class MyToolWindowFactory : ToolWindowFactory {
                 panel.add(comboBox)
 
                 startTimer.addActionListener {
-                    countdownTimer.sethours(comboBox.selectedIndex.toString().toInt() + 1) // Set hours from the combo box
+                    countdownTimer.sethours(comboBox.selectedIndex.toString().toInt()) // Set hours from the combo box
                     countdownTimer.start() // Start the timer only when the button is clicked
-                    startTimer.isEnabled = true  // Disable button after starting
+                    startTimer.isEnabled = true  // Disable button after startin
                 }
 
 

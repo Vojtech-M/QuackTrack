@@ -1,5 +1,6 @@
 package com.github.vojtechm.plugintest.timer
 
+import com.intellij.notification.ActionCenter.showNotification
 import javax.swing.JLabel
 import java.util.Timer
 import java.util.TimerTask
@@ -17,6 +18,7 @@ class CountdownTimer( private val label: JLabel) {
             override fun run() {
                 if (hours == 0 && minutes == 0 && seconds == 0) {
                     label.text = "Čas vypršel" // Display time's up message
+                    Notification().showNotification()
                     timer.cancel() // Stop the timer
                     return
                 }
