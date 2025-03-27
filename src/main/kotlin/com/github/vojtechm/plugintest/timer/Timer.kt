@@ -1,76 +1,50 @@
 package com.github.vojtechm.plugintest.timer
 
-import com.intellij.notification.ActionCenter.showNotification
 import com.intellij.ui.components.JBLabel
 import javax.swing.JLabel
 import java.util.Timer
 import java.util.TimerTask
-import javax.swing.BoxLayout
 import javax.swing.Icon
 import javax.swing.ImageIcon
 
-
 class CountdownTimer(private val label: JLabel, private val Notification: Notification, private val hoursinput: Int, private val minutesinput: Int, private val secondsinput: Int, private val run: Boolean, private val imageLabel: JBLabel,private val imagesArray: Array<ImageIcon> ) {
+
+    // default values
     private var timer = Timer()
     private var hours: Int = 0
     private var minutes: Int = 0
     private var seconds: Int = 0
     private var currentImageIndex = 0
 
-    companion object {
-        private val activeTimers = mutableListOf<CountdownTimer>()
 
-        fun stopAllTimers() {
-            for (timer in activeTimers) {
-                timer.stop()
-            }
-            activeTimers.clear() // Remove all timers from the list
-        }
-    }
-
-
-    init {
-        activeTimers.add(this) // Register timer when created
-    }
     fun  start(): Boolean{
-
         reset()
+
         timer.scheduleAtFixedRate(object : TimerTask() {
             override fun run(){
                 if (hours == 0 && minutes == 0 && seconds == 0) {
                     label.text = "Čas vypršel" // Display time's up message
                     Notification.showNotification()
-
-
-
                     hours = hoursinput
                     minutes = minutesinput
                     seconds = secondsinput
 
                     if (run == false){
-                        CountdownTimer.stopAllTimers()
                         timer.cancel()
                         return
 
                     } else {
                         reset()
                         imageLabel.icon = updateImage()
-
-
                         start()
-
-
                     }
-
                 }
-
                 decrementTime()
-                label.text = "${formatTime()}" // Update label with countdown time
+                label.text = formatTime() // Update label with countdown time
             }
         }, 0, 1000) // Start immediately, update every second
         return false
     }
-
 
     fun sethours(hours: Int) {
         this.hours = hours
@@ -94,7 +68,6 @@ class CountdownTimer(private val label: JLabel, private val Notification: Notifi
         return hours
     }
 
-
     private fun decrementTime() {
         if (seconds > 0) {
             seconds--
@@ -117,10 +90,6 @@ class CountdownTimer(private val label: JLabel, private val Notification: Notifi
         timer = Timer()
     }
 
-    fun stop() {
-        timer.cancel()
-        activeTimers.remove(this) // Remove timer from active list
-    }
     private fun updateImage(): Icon? {
         // Change the current image index
         if (currentImageIndex < imagesArray.size - 1) {
@@ -134,9 +103,4 @@ class CountdownTimer(private val label: JLabel, private val Notification: Notifi
     fun setCurrentImageIndex(index: Int){
         currentImageIndex = index
     }
-
-
-
-
-
 }
