@@ -14,6 +14,7 @@ object MyBundle : DynamicBundle(BUNDLE) {
         getMessage(key, *params)
 
     @Suppress("unused")
+
     @JvmStatic
     fun messagePointer(@PropertyKey(resourceBundle = BUNDLE) key: String, vararg params: Any) =
         getLazyMessage(key, *params)
