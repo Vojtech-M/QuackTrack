@@ -1,6 +1,10 @@
 # 🦆 QuackTrack - Help the Developer
 
+<!-- Plugin description -->
 QuackTrack is an IntelliJ IDEA plugin designed to help developers manage their time effectively while keeping them hydrated and promoting healthy habits—all in a fun way with animated ducks! 🦆⏳💧
+<!-- Plugin description end -->
+
+
 This plugin was made for team coding competetion UnIT 2025 in category Help the Developer by JetBrains. 
 
 
