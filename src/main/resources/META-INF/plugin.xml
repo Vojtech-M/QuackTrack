@@ -2,7 +2,6 @@
 <idea-plugin>
     <id>com.github.vojtechm.QuackTrack</id>
     <name>QuackTrack</name>
-
     <vendor>vojtech-m</vendor>
 
     <depends>com.intellij.modules.platform</depends>
