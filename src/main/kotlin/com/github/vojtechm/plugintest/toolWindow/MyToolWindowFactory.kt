@@ -13,7 +13,6 @@ import javax.swing.ImageIcon
 import com.intellij.ui.dsl.builder.panel
 import javax.swing.JComboBox
 
-
 class MyToolWindowFactory : ToolWindowFactory {
 
     // This method is called when the tool window is created
