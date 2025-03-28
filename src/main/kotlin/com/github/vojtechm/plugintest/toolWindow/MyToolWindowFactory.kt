@@ -22,6 +22,7 @@ class MyToolWindowFactory : ToolWindowFactory {
         toolWindow.contentManager.addContent(content)
     }
 
+
     // This method is called when the plugin is loaded
     override fun shouldBeAvailable(project: Project): Boolean {
         return true
