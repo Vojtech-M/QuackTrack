@@ -60,8 +60,8 @@ This plugin was made for team coding competetion UnIT 2025 in category Help the 
 ## 👥 Contributors
 - [Vojtěch Michal](https://github.com/Vojtech-M)
 - [Patrik Pašek](https://github.com/pasekpatrik)
-- **Barbora Gregorová**  
-- **Magdalena Lebedová**  
+- [Barbora Gregorová](https://github.com/sfmbg)
+- [Magdalena Lebedová](https://github.com/majdajede)
 
 ## 📜 License
 MIT License. See `LICENSE` for details.
