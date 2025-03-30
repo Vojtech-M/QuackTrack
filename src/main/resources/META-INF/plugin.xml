@@ -9,16 +9,15 @@
     <resource-bundle>messages.MyBundle</resource-bundle>
 
     <extensions defaultExtensionNs="com.intellij">
-        <toolWindow factoryClass="com.github.vojtechm.plugintest.toolWindow.MyToolWindowFactory" id="DuckDebugger" icon="/icons/duck.svg"/>
+        <toolWindow
+                factoryClass="com.github.vojtechm.plugintest.toolWindow.MyToolWindowFactory"
+                id="QuackTrack"
+                icon="/icons/duck.png"/>
     </extensions>
 
     <applicationListeners>
-        <listener class="com.github.vojtechm.plugintest.listeners.MyApplicationActivationListener" topic="com.intellij.openapi.application.ApplicationActivationListener"/>
+        <listener
+                class="com.github.vojtechm.plugintest.listeners.MyApplicationActivationListener"
+                topic="com.intellij.openapi.application.ApplicationActivationListener"/>
     </applicationListeners>
-
-    <extensions defaultExtensionNs="com.intellij">
-        <toolWindow id="DuckDebugger"
-                    anchor="right"
-                    factoryClass="com.github.vojtechm.plugintest.toolWindow.MyToolWindowFactory"/>
-    </extensions>
 </idea-plugin>

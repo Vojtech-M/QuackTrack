@@ -15,5 +15,4 @@ class Notification (private val title: String, private val body: String){
         )
         Notifications.Bus.notify(notification)
     }
-
 }

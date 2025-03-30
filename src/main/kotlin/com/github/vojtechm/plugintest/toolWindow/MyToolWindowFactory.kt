@@ -1,5 +1,7 @@
 package com.github.vojtechm.plugintest.toolWindow
 
+import com.github.vojtechm.plugintest.model.WalkTimer
+import com.github.vojtechm.plugintest.model.WaterTimer
 import com.github.vojtechm.plugintest.services.MyProjectService
 import com.github.vojtechm.plugintest.timer.CountdownTimer
 import com.github.vojtechm.plugintest.timer.Notification
@@ -12,6 +14,7 @@ import com.intellij.ui.content.ContentFactory
 import javax.swing.ImageIcon
 import com.intellij.ui.dsl.builder.panel
 import javax.swing.JComboBox
+import javax.swing.JLabel
 
 class MyToolWindowFactory : ToolWindowFactory {
 
@@ -19,18 +22,17 @@ class MyToolWindowFactory : ToolWindowFactory {
     override fun createToolWindowContent(project: Project, toolWindow: ToolWindow) {
         val myToolWindow = MyToolWindow(toolWindow)
         val content = ContentFactory.getInstance().createContent(myToolWindow.content, null, false)
+
         toolWindow.contentManager.addContent(content)
     }
-
 
     // This method is called when the plugin is loaded
     override fun shouldBeAvailable(project: Project): Boolean {
         return true
     }
+
     internal class MyToolWindow(toolWindow: ToolWindow) {
-        private val service: MyProjectService = toolWindow.project.getService(MyProjectService::class.java)
-        private val label = JBLabel("00:00:00") // Start from 2 hours
-        private val waterlabel = JBLabel(null)
+        private val label = JBLabel("00:00:00")
         private var imageLabel = JBLabel()
         private var runningDuck = JBLabel()
 
@@ -49,12 +51,19 @@ class MyToolWindowFactory : ToolWindowFactory {
 
         // Timers
         val countdownTimer = CountdownTimer(label, Notification("cas", "vyprsel"), 0,0,0, false, imageLabel, imagesArray)
-        val countdownTimerWater = CountdownTimer(waterlabel, Notification("voda", "napij se "), 0,0,5, true, imageLabel, imagesArray)
+        val waterTimer = WaterTimer(Notification("test", "test"), 5000, imageLabel, imagesArray)
+
+        val labelSpace = JBLabel("")
+        val walkTimer = WalkTimer(
+            Notification("Jdi", "hned"), 10000, labelSpace,
+            imageLabel, imagesArray
+        )
 
         val content: JBPanel<*>
             get() {
-                imageLabel.icon = imageIcon1 // Set the image as the label's icon
                 val box = JComboBox(arrayOf("1", "2", "3"))
+                imageLabel.icon = imageIcon1
+                runningDuck.icon = imageIcon4
 
                 return panel {
                     // Row for the Timer Label
@@ -66,28 +75,27 @@ class MyToolWindowFactory : ToolWindowFactory {
                             countdownTimer.sethours(box.selectedIndex.toString().toInt() + 1)
                             countdownTimer.setMinutes(0)
                             countdownTimer.setSeconds(0)
+
                             countdownTimer.start()
 
-                            countdownTimerWater.setSeconds(5)
-                            countdownTimerWater.setMinutes(0)
-                            countdownTimerWater.sethours(0)
-                            countdownTimerWater.start()
+                            waterTimer.startInterval()
+                            walkTimer.startInterval()
                         }
                     }
 
                     // Row for Start Timer Button
                     row("") {
                         cell(imageLabel)
-                        button("reset"){
-                            imageLabel.icon = imageIcon1
-                            countdownTimerWater.setCurrentImageIndex(0)
+                        button("Obnovit"){
+                            waterTimer.restartCurrentImagesIndex(0)
+                            waterTimer.startInterval()
                         }
                     }
 
                     // row o animated duck
-                    row("running ruck"){
+                    row(){
+                        cell(labelSpace)
                         cell(runningDuck)
-                        runningDuck.icon = imageIcon4
                     }
                 }
             }
